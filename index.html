@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="jp" ng-app="app">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>M@STERS OF IDOL WORLD2014</title>
+    <link href="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
+    <link href="./style.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-2.1.0.min.js"></script>
+    <script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.12/angular.min.js"></script>
+    <script src="https://www.google.com/jsapi"></script>
+    <script>
+      google.load("visualization", "1");
+    </script>
+    <script src="./app.js"></script>
+  </head>
+<body>
+  <div class="navbar navbar-fixed-top navbar-inverse" role="navigation">
+    <div class="container">
+      <div class="navbar-header">
+        <p class="navbar-text">M@STERS OF IDOL WORLD2014</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="container wrapper" ng-controller="IdolCtrl">
+    <div class="row" ng-repeat="idols in idolsRows">
+      <div class="col-md-3 col-sm-3" ng-repeat="idol in idols">
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <p>
+              出演日:
+              <span ng-show="idol.first_day">22日</span>
+              <span ng-show="idol.second_day">23日</span>
+              <span ng-show="!idol.second_day && !idol.seconde_day">不明</span>
+            </p>
+            <p>所属:{{idol.affiliation}}</p>
+            <p>名前:{{idol.name}}</p>
+            <p>役名:{{idol.character}}</p>
+            <p>色:<span class="label label-default" style="{{idol.style}}">{{idol.color}}</span></p>
+            <p>愛称:{{idol.nickname}}</p>
+            <p>歌:{{idol.song}}</p>
+            <p>備考:{{idol.remark}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
