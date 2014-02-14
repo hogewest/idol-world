@@ -26,22 +26,39 @@
 
   <div class="container wrapper" ng-controller="IdolCtrl">
     <div class="row" ng-repeat="idols in idolsRows">
-      <div class="col-md-3 col-sm-3" ng-repeat="idol in idols">
+      <div class="col-md-4 col-sm-4 col-lg-4" ng-repeat="idol in idols">
         <div class="panel panel-default">
+          <div class="panel-heading">
+            <strong class="text-info">{{idol.name}}</strong> @ {{idol.character}}
+          </div>
           <div class="panel-body">
-            <p>
+            <ul class="list-inline">
+              <li>所　属:</li>
+              <li>{{idol.affiliation}}</li>
+            </ul>
+            <ul class="list-inline">
+              <li>カラー:</li>
+              <li><span class="label label-default" style="{{idol.style}}">{{idol.color}}</span></li>
+            </ul>
+            <ul class="list-inline">
+              <li>愛　称:</li>
+              <li>{{idol.nickname}}</li>
+            </ul>
+            <ul class="list-inline">
+              <li>持ち歌:</li>
+              <li><a ng-show="idol.songLink" ng-href="{{idol.songLink}}" target="_blank">{{idol.song}}</a></li>
+            </ul>
+            <ul class="list-inline">
+              <li>備　考:</li>
+              <li>{{idol.remark}}</li>
+            </ul>
+            <hr>
+            <p class="text-info pull-right">
               出演日:
               <span ng-show="idol.first_day">22日</span>
               <span ng-show="idol.second_day">23日</span>
               <span ng-show="!idol.first_day && !idol.second_day">不明</span>
             </p>
-            <p>所属:{{idol.affiliation}}</p>
-            <p>名前:{{idol.name}}</p>
-            <p>役名:{{idol.character}}</p>
-            <p>色:<span class="label label-default" style="{{idol.style}}">{{idol.color}}</span></p>
-            <p>愛称:{{idol.nickname}}</p>
-            <p>歌:<a ng-show="idol.songLink" ng-href="{{idol.songLink}}" target="_blank">{{idol.song}}</a></p>
-            <p>備考:{{idol.remark}}</p>
           </div>
         </div>
       </div>
