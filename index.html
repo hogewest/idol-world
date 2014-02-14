@@ -33,7 +33,7 @@
               出演日:
               <span ng-show="idol.first_day">22日</span>
               <span ng-show="idol.second_day">23日</span>
-              <span ng-show="!idol.first_day && !idol.seconde_day">不明</span>
+              <span ng-show="idol.first_day && idol.seconde_day">不明</span>
             </p>
             <p>所属:{{idol.affiliation}}</p>
             <p>名前:{{idol.name}}</p>
