@@ -33,7 +33,8 @@ angular.module('app', [])
           style: row.c[6].p.style,
           nickname: row.c[7].v,
           song: row.c[8].v,
-          remark: row.c[9].v
+          songLink: row.c[9].v,
+          remark: row.c[10].v
         };
         idols.push(idol);
       });
