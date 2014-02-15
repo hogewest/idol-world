@@ -29,6 +29,7 @@ angular.module('app', [])
           affiliation: row.c[2].v,
           name: row.c[3].v,
           character: row.c[4].v,
+          attribute: row.c[5].v,
           color: row.c[6].v,
           style: row.c[6].p.style,
           nickname: row.c[7].v,
