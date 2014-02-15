@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>M@STERS OF IDOL WORLD2014</title>
+    <title>M@STERS OF IDOL WORLD!! 2014 Performers</title>
     <link href="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
     <link href="./style.css" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-2.1.0.min.js"></script>
@@ -19,7 +19,7 @@
   <div class="navbar navbar-fixed-top navbar-inverse" role="navigation">
     <div class="container">
       <div class="navbar-header">
-        <p class="navbar-text">M@STERS OF IDOL WORLD2014</p>
+        <p class="navbar-text">M@STERS OF IDOL WORLD!! 2014 Performers</p>
       </div>
     </div>
   </div>
@@ -67,7 +67,7 @@
               出演日:
               <span ng-show="idol.first_day">22日</span>
               <span ng-show="idol.second_day">23日</span>
-              <span ng-show="!idol.first_day && !idol.second_day">不明</span>
+              <span ng-if="!idol.first_day && !idol.second_day">不明</span>
             </p>
           </div>
         </div>
