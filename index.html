@@ -29,7 +29,14 @@
       <div class="col-md-4 col-sm-4 col-lg-4" ng-repeat="idol in idols">
         <div class="panel panel-default">
           <div class="panel-heading">
-            <strong class="text-info">{{idol.name}}</strong> @ {{idol.character}}[{{idol.attribute}}]
+            <strong class="text-info">
+              <a ng-if="idol.link" ng-href="{{idol.link}}" target="_blank">{{idol.name}}</a>
+              <span ng-if="!idol.link">{{idol.name}}</span>
+            </strong>
+            @
+            <a ng-if="idol.character_link" ng-href="{{idol.character_link}}" target="_blank">{{idol.character}}</a>
+            <span ng-if="!idol.character_link">{{idol.character}}</span>
+            [{{idol.attribute}}]
           </div>
           <div class="panel-body">
             <ul class="list-inline">
@@ -46,7 +53,10 @@
             </ul>
             <ul class="list-inline">
               <li>持ち歌:</li>
-              <li><a ng-show="idol.songLink" ng-href="{{idol.songLink}}" target="_blank">{{idol.song}}</a></li>
+              <li>
+                <a ng-if="idol.songLink" ng-href="{{idol.songLink}}" target="_blank">{{idol.song}}</a>
+                <span ng-if="!idol.songLink">{{idol.song}}</span>
+              </li>
             </ul>
             <ul class="list-inline">
               <li>備　考:</li>
