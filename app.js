@@ -32,7 +32,7 @@ angular.module('app', [])
           character_link: row.c[15].v,
           attribute: row.c[5].v,
           color: row.c[6].v,
-          style: row.c[6].p.style,
+          style: row.c[6].p.style.replace("font-family:Dialog;", ""),
           nickname: row.c[7].v,
           song: row.c[8].v,
           song_link: row.c[10].v,

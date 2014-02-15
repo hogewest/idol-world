@@ -5,3 +5,9 @@ body {
 .wrapper {
   padding: 40px 15px;
 }
+.label-default {
+  background-color: #ddd;
+}
+.idol-color {
+  font-size: 12px;
+}
