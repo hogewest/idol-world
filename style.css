@@ -1,7 +1,8 @@
 body {
-  padding-top: 50px;
-  font-family: 'Ubuntu', sans-serif;
   background-image: url('./background.png');
+  color: #444;
+  font-family: 'Ubuntu', sans-serif;
+  padding-top: 50px;
 }
 .wrapper {
   padding: 40px 15px;
@@ -19,6 +20,6 @@ body {
   font-size: 12px;
 }
 .panel-default > .panel-heading {
-  color: #fff;
   background-color: #333;
+  color: #fff;
 }
