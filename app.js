@@ -45,16 +45,17 @@ angular.module('app', [])
   };
 })
 
-.factory('query', function(AppConfig) {
+.factory('Query', function(AppConfig) {
   var url = AppConfig.BASE_URL + AppConfig.SPREADSHEET_KEY + "&gid=0";
   return new google.visualization.Query(url);
 })
 
-.controller('IdolCtrl', function($scope, Utils, query) {
-  query.send(function(response) {
+.controller('IdolCtrl', function($scope, Utils, Query) {
+  Query.send(function(response) {
     var dataTable = JSON.parse(response.getDataTable().toJSON());
+    var idols = Utils.mappingToIdol(dataTable.rows.slice(1));
+
     $scope.$apply(function() {
-      var idols = Utils.mappingToIdol(dataTable.rows.slice(1));
       $scope.idolsRows = Utils.splitIntoRows(idols, 3);
       console.log($scope.idolsRows);
     });
