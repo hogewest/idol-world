@@ -57,7 +57,6 @@ angular.module('app', [])
 
     $scope.$apply(function() {
       $scope.idolsRows = Utils.splitIntoRows(idols, 3);
-      console.log($scope.idolsRows);
     });
   });
 });
