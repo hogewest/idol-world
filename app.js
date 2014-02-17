@@ -35,7 +35,7 @@ angular.module('app', [])
           style: row.c[6].p.style.replace("font-family:Dialog;", ""),
           nickname: row.c[7].v,
           song: row.c[8].v,
-          call_link: row.c[12].v,
+          call_link: row.c[14].v,
           song_link: row.c[11].v,
           remark: row.c[12].v
         };
