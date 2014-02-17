@@ -27,16 +27,17 @@ angular.module('app', [])
           second_day: row.c[1].v == '○',
           affiliation: row.c[2].v,
           name: row.c[3].v,
-          link: row.c[13].v,
+          link: row.c[14].v,
           character: row.c[4].v,
-          character_link: row.c[15].v,
+          character_link: row.c[16].v,
           attribute: row.c[5].v,
           color: row.c[6].v,
           style: row.c[6].p.style.replace("font-family:Dialog;", ""),
           nickname: row.c[7].v,
           song: row.c[8].v,
-          song_link: row.c[10].v,
-          remark: row.c[11].v
+          call_link: row.c[9].v,
+          song_link: row.c[11].v,
+          remark: row.c[12].v
         };
         idols.push(idol);
       });
