@@ -27,3 +27,9 @@ body {
   background-color: #333;
   color: #fff;
 }
+.footer {
+  background-color: #f9f9f9;
+  border-top: 1px solid #e5e5e5;
+  padding: 40px 0;
+  text-align: center;
+}
