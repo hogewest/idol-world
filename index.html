@@ -26,8 +26,8 @@
   </div>
 
   <div class="container wrapper" ng-controller="IdolCtrl">
-    <div class="row" ng-repeat="idols in idolsRows">
-      <div class="col-md-4 col-sm-4 col-lg-4" ng-repeat="idol in idols">
+    <div class="row" ng-repeat="row in idols | partition:3">
+      <div class="col-md-4 col-sm-4 col-lg-4" ng-repeat="idol in row">
         <div class="panel panel-default">
           <div class="panel-heading">
             <a ng-if="idol.link && idol.link != '-'" ng-href="{{idol.link}}" target="_blank">{{idol.name}}</a>

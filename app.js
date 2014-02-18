@@ -7,18 +7,6 @@ angular.module('app', [])
 
 .factory('Utils', function() {
   return {
-    splitIntoRows: function(array, size) {
-      if (!Array.isArray(array) || size < 1) {
-        return array;
-      }
-
-      var rows= [];
-      var length = array.length;
-      for(var i = 0; i < length; i += size) {
-        rows.push(array.slice(i, i + size));
-      }
-      return rows;
-    },
     mappingToIdol: function(rows) {
       var idols = [];
       $.each(rows, function(index, row){
@@ -47,6 +35,31 @@ angular.module('app', [])
   };
 })
 
+.filter('partition', function($cacheFactory) {
+  var arrayCache = $cacheFactory('partition')
+
+  return function(array, size) {
+    if(!Array.isArray(array) || size <= 1) {
+      return array;
+    }
+
+    var parts   = [],
+        jsonArr = JSON.stringify(array);
+
+    for(var i = 0; i < array.length; i += size) {
+        parts.push(array.slice(i, i + size));
+    }
+
+    var cachedParts = arrayCache.get(jsonArr);
+    if (JSON.stringify(cachedParts) === JSON.stringify(parts)) {
+      return cachedParts;
+    }
+
+    arrayCache.put(jsonArr, parts);
+    return parts;
+  };
+})
+
 .factory('Query', function(AppConfig) {
   var url = AppConfig.BASE_URL + AppConfig.SPREADSHEET_KEY + "&gid=0";
   return new google.visualization.Query(url);
@@ -55,10 +68,8 @@ angular.module('app', [])
 .controller('IdolCtrl', function($scope, Utils, Query) {
   Query.send(function(response) {
     var dataTable = JSON.parse(response.getDataTable().toJSON());
-    var idols = Utils.mappingToIdol(dataTable.rows.slice(1));
-
     $scope.$apply(function() {
-      $scope.idolsRows = Utils.splitIntoRows(idols, 3);
+      $scope.idols = Utils.mappingToIdol(dataTable.rows.slice(1));
     });
   });
 });
