@@ -24,10 +24,12 @@
           <div class="panel-heading">
             <a ng-if="idol.performer_link" ng-href="{{idol.performer_link}}" target="_blank">{{idol.performer}}</a>
             <span ng-if="!idol.performer_link">{{idol.performer}}</span>
-            <span ng-if="idol.character">@</span>
-            <a ng-if="idol.character_link" ng-href="{{idol.character_link}}" target="_blank">{{idol.character}}</a>
-            <span ng-if="idol.character && !idol.character_link">{{idol.character}}</span>
-            <span ng-if="idol.character">[{{idol.attribute}}]</span>
+            <span ng-if="idol.character">
+              @
+              <a ng-if="idol.character_link" ng-href="{{idol.character_link}}" target="_blank">{{idol.character}}</a>
+              <span ng-if="!idol.character_link">{{idol.character}}</span>
+              [{{idol.attribute}}]
+            </span>
           </div>
           <div class="panel-body">
             <ul class="list-inline">
