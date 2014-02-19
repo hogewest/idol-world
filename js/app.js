@@ -19,12 +19,12 @@ angular.module('app', [])
       }
       return rows;
     },
-    mappingToIdol: function(items) {
-      var result = [];
-      angular.forEach(items, function(item){
-        var col = item.c;
+    mappingToIdol: function(rows) {
+      var idols = [];
+      angular.forEach(rows, function(row){
+        var col = row.c;
 
-        result.push({
+        idols.push({
           first_day:      col[0].v == '○',
           second_day:     col[1].v == '○',
           affiliation:    col[2].v,
@@ -43,7 +43,7 @@ angular.module('app', [])
           character_link: col[18].v
         });
       });
-      return result;
+      return idols;
     }
   };
 })
