@@ -1,8 +1,8 @@
 angular.module('app', [])
 
 .value('AppConfig', {
-  SPREADSHEET_KEY: "0AiYLrpOi8EdddGJtdTZyQm9MdUtvamxiNll2bUtTeGc",
-  BASE_URL: "http://spreadsheets.google.com/ccc?key="
+  SPREADSHEET_KEY: '0AiYLrpOi8EdddGJtdTZyQm9MdUtvamxiNll2bUtTeGc',
+  BASE_URL: 'http://spreadsheets.google.com/ccc?key='
 })
 
 .factory('Utils', function() {
@@ -32,14 +32,14 @@ angular.module('app', [])
           character:      col[4].v,
           attribute:      col[5].v,
           color:          col[6].v,
-          style:          col[6].p.style.replace("font-family:Dialog;", ""),
+          style:          col[6].p.style.replace('font-family:Dialog;', ''),
           nickname:       col[7].v,
           song:           col[8].v,
           call_song:      col[9].v,
           song_link:      col[11].v,
           remark:         col[12].v,
           call_link:      col[14].v,
-          performer_link: col[16].v === "-" ? null : col[16].v,
+          performer_link: col[16].v === '-' ? null : col[16].v,
           character_link: col[18].v
         });
       });
@@ -49,7 +49,7 @@ angular.module('app', [])
 })
 
 .factory('Query', function(AppConfig) {
-  var url = AppConfig.BASE_URL + AppConfig.SPREADSHEET_KEY + "&gid=0";
+  var url = AppConfig.BASE_URL + AppConfig.SPREADSHEET_KEY + '&gid=0';
   return new google.visualization.Query(url);
 })
 
