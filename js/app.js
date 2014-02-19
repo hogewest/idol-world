@@ -76,7 +76,7 @@ angular.module('app', [])
         }
         hentaiMode = true; // hentai mode start
 
-        var hentai = Math.floor(Math.random() * 10) < 7;
+        var hentai = Math.floor(Math.random() * 10) < 8;
         var neta = hentai ? '変態' : '72';
         var netaClass = hentai ? 'hentai-uo' : 'chihaya';
         var $body = angular.element(document.body);
@@ -110,7 +110,7 @@ angular.module('app', [])
             }
           }
         }
-        textHeight -= 50;
+        textHeight -= 80;
         ctx.clearRect(0, 0, canvas.width, canvas.height);
 
         ctx.save();
