@@ -76,8 +76,11 @@ angular.module('app', [])
         }
         hentaiMode = true; // hentai mode start
 
+        var hentai = Math.floor(Math.random() * 10) < 9;
+        var neta = hentai ? '変態' : '72';
+        var netaClass = hentai ? 'hentai-uo' : 'chihaya';
         var $body = angular.element(document.body);
-        $body.addClass('hentai-uo');
+        $body.addClass(netaClass);
 
         // TODO Danger
         var $canvas = angular.element('<canvas style="top: 0px; left: 0px; position: fixed;"></canvas>');
@@ -92,7 +95,7 @@ angular.module('app', [])
         ctx.textAlign = 'center';
         ctx.textBaseline = 'middle';
 
-        ctx.fillText('変態', 0, 0);
+        ctx.fillText(neta, 0, 0);
         var pixels = ctx.getImageData(0, 0, canvas.width, canvas.height);
         var data = pixels.data;
         var textHeight = 0;
@@ -111,11 +114,11 @@ angular.module('app', [])
         ctx.clearRect(0, 0, canvas.width, canvas.height);
 
         ctx.save();
-        ctx.fillText('変態', canvas.width / 2, (canvas.height - textHeight) / 2);
+        ctx.fillText(neta, canvas.width / 2, (canvas.height - textHeight) / 2);
         ctx.restore();
 
         $timeout(function() {
-          $body.removeClass('hentai-uo');
+          $body.removeClass(netaClass);
           ctx.clearRect(0, 0, canvas.width, canvas.height);
           $canvas.remove();
           hentaiMode = false; // hentai mode end
