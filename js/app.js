@@ -28,7 +28,7 @@ angular.module('app', [])
           first_day:      col[0].v == '○',
           second_day:     col[1].v == '○',
           affiliation:    col[2].v,
-          name:           col[3].v,
+          performer:      col[3].v,
           character:      col[4].v,
           attribute:      col[5].v,
           color:          col[6].v,
@@ -39,7 +39,7 @@ angular.module('app', [])
           song_link:      col[11].v,
           remark:         col[12].v,
           call_link:      col[14].v,
-          link:           col[16].v,
+          performer_link: col[16].v === "-" ? null : col[16].v,
           character_link: col[18].v
         });
       });

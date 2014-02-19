@@ -22,8 +22,8 @@
       <div class="col-md-4 col-sm-4 col-lg-4" ng-repeat="idol in idols">
         <div class="panel panel-default">
           <div class="panel-heading">
-            <a ng-if="idol.link && idol.link != '-'" ng-href="{{idol.link}}" target="_blank">{{idol.name}}</a>
-            <span ng-if="!idol.link || idol.link == '-'">{{idol.name}}</span>
+            <a ng-if="idol.performer_link" ng-href="{{idol.performer_link}}" target="_blank">{{idol.performer}}</a>
+            <span ng-if="!idol.performer_link">{{idol.performer}}</span>
             @
             <a ng-if="idol.character_link" ng-href="{{idol.character_link}}" target="_blank">{{idol.character}}</a>
             <span ng-if="!idol.character_link">{{idol.character}}</span>
