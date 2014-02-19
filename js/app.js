@@ -29,7 +29,7 @@ angular.module('app', [])
           second_day:     col[1].v === '○',
           affiliation:    col[2].v,
           performer:      col[3].v,
-          character:      col[4].v,
+          character:      col[4].v === '-' ? null : col[4].v,
           attribute:      col[5].v,
           color:          col[6].v,
           style:          col[6].p.style.replace('font-family:Dialog;', ''),
