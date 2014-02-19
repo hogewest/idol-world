@@ -22,23 +22,25 @@ angular.module('app', [])
     mappingToIdol: function(items) {
       var result = [];
       angular.forEach(items, function(item){
+        var col = item.c;
+
         result.push({
-          first_day:      item.c[0].v == '○',
-          second_day:     item.c[1].v == '○',
-          affiliation:    item.c[2].v,
-          name:           item.c[3].v,
-          character:      item.c[4].v,
-          attribute:      item.c[5].v,
-          color:          item.c[6].v,
-          style:          item.c[6].p.style.replace("font-family:Dialog;", ""),
-          nickname:       item.c[7].v,
-          song:           item.c[8].v,
-          call_song:      item.c[9].v,
-          song_link:      item.c[11].v,
-          remark:         item.c[12].v,
-          call_link:      item.c[14].v,
-          link:           item.c[16].v,
-          character_link: item.c[18].v
+          first_day:      col[0].v == '○',
+          second_day:     col[1].v == '○',
+          affiliation:    col[2].v,
+          name:           col[3].v,
+          character:      col[4].v,
+          attribute:      col[5].v,
+          color:          col[6].v,
+          style:          col[6].p.style.replace("font-family:Dialog;", ""),
+          nickname:       col[7].v,
+          song:           col[8].v,
+          call_song:      col[9].v,
+          song_link:      col[11].v,
+          remark:         col[12].v,
+          call_link:      col[14].v,
+          link:           col[16].v,
+          character_link: col[18].v
         });
       });
       return result;
