@@ -76,14 +76,49 @@ angular.module('app', [])
         }
         hentaiMode = true; // hentai mode start
 
-        $body = angular.element(document.body);
+        var $body = angular.element(document.body);
         $body.addClass('hentai-uo');
 
-        scope.hentai = true;
+        // TODO Danger
+        var $canvas = angular.element('<canvas style="top: 0px; left: 0px; position: fixed;"></canvas>');
+        $body.append($canvas);
+
+        var canvas = $canvas[0];
+        canvas.height = window.innerHeight;
+        canvas.width = window.innerWidth;
+        var ctx = canvas.getContext('2d');
+        var fontSize = canvas.width / 40;
+        ctx.font = 'bold ' + parseInt(fontSize) + 'em ' + "'Arial'";
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+
+        ctx.fillText('変態', 0, 0);
+        var pixels = ctx.getImageData(0, 0, canvas.width, canvas.height);
+        var data = pixels.data;
+        var textHeight = 0;
+        var currentRow = -1;
+        for (var i = 0, len = data.length; i < len; i += 4) {
+          var r = data[i], g = data[i+1], b = data[i+2], alpha = data[i+3];
+          if (alpha > 0) {
+            var row = Math.floor((i / 4) / canvas.width);
+            if (row > currentRow) {
+              currentRow = row;
+              textHeight++;
+            }
+          }
+        }
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        ctx.save();
+        ctx.fillText('変態', canvas.width / 2, (canvas.height - textHeight) / 2);
+        ctx.restore();
+
         $timeout(function() {
           $body.removeClass('hentai-uo');
+          ctx.clearRect(0, 0, canvas.width, canvas.height);
+          $canvas.remove();
           hentaiMode = false; // hentai mode end
-        }, 2000);
+        }, 5000);
       });
     }
   };
