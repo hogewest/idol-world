@@ -25,8 +25,8 @@ angular.module('app', [])
         var col = row.c;
 
         idols.push({
-          first_day:      col[0].v == '○',
-          second_day:     col[1].v == '○',
+          first_day:      col[0].v === '○',
+          second_day:     col[1].v === '○',
           affiliation:    col[2].v,
           performer:      col[3].v,
           character:      col[4].v,
