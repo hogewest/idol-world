@@ -62,8 +62,8 @@
             <hr>
             <p class="text-info pull-right">
               出演日:
-              <span ng-show="idol.first_day">22日</span>
-              <span ng-show="idol.second_day">23日</span>
+              <span ng-if="idol.first_day">22日</span>
+              <span ng-if="idol.second_day">23日</span>
               <span ng-if="!idol.first_day && !idol.second_day">不明</span>
             </p>
           </div>
