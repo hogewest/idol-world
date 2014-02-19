@@ -107,6 +107,7 @@ angular.module('app', [])
             }
           }
         }
+        textHeight -= 40;
         ctx.clearRect(0, 0, canvas.width, canvas.height);
 
         ctx.save();
