@@ -40,7 +40,8 @@ angular.module('app', [])
           remark:         col[12].v,
           call_link:      col[14].v,
           performer_link: col[16].v === '-' ? null : col[16].v,
-          character_link: col[18].v
+          character_link: col[18].v,
+          hentai:         col[3].v === '坂上陽三'
         });
       });
       return idols;
@@ -62,4 +63,28 @@ angular.module('app', [])
       $scope.idolsRows = Utils.splitIntoRows(idols, 3);
     });
   });
+})
+
+.directive('hentai', function($timeout) {
+  var hentaiMode = false;
+  return {
+    link: function(scope, element, attrs) {
+      element.on('click', function(e) {
+        e.preventDefault();
+        if(hentaiMode) {
+          return;
+        }
+        hentaiMode = true; // hentai mode start
+
+        $body = angular.element(document.body);
+        $body.addClass('hentai-uo');
+
+        scope.hentai = true;
+        $timeout(function() {
+          $body.removeClass('hentai-uo');
+          hentaiMode = false; // hentai mode end
+        }, 2000);
+      });
+    }
+  };
 });
