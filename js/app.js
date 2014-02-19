@@ -76,7 +76,7 @@ angular.module('app', [])
         }
         hentaiMode = true; // hentai mode start
 
-        var hentai = Math.floor(Math.random() * 10) < 9;
+        var hentai = Math.floor(Math.random() * 10) < 8;
         var neta = hentai ? '変態' : '72';
         var netaClass = hentai ? 'hentai-uo' : 'chihaya';
         var $body = angular.element(document.body);
