@@ -39,24 +39,8 @@
   </div>
 
   <div class="container wrapper" ng-controller="IdolCtrl" ng-cloak>
-    <!-- Loading Animation -->
-    <div id="floatingCirclesG" class="center-block" ng-if="loading">
-      <div class="f_circleG" id="frotateG_01">
-      </div>
-      <div class="f_circleG" id="frotateG_02">
-      </div>
-      <div class="f_circleG" id="frotateG_03">
-      </div>
-      <div class="f_circleG" id="frotateG_04">
-      </div>
-      <div class="f_circleG" id="frotateG_05">
-      </div>
-      <div class="f_circleG" id="frotateG_06">
-      </div>
-      <div class="f_circleG" id="frotateG_07">
-      </div>
-      <div class="f_circleG" id="frotateG_08">
-      </div>
+    <div class="center-block text-center" ng-if="loading">
+      <h3>Now Loading...</h3>
     </div>
 
     <div class="row" ng-repeat="idols in idolsRows">
