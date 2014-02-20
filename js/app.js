@@ -68,6 +68,24 @@ angular.module('app', [])
   });
 })
 
+.directive('scrollTop', function($timeout) {
+  return {
+    link: function(scope, element, attrs) {
+      element.on('click', function(e) {
+        e.preventDefault();
+
+        (function _scrollTop() {
+          if(document.body.scrollTop === 0) {
+            return;
+          }
+          document.body.scrollTop -= 100;
+          $timeout(_scrollTop, 10);
+        })();
+      });
+    }
+  }
+})
+
 .directive('hentai', function($timeout) {
   var hentaiMode = false;
   return {
