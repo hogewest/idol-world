@@ -16,6 +16,7 @@ body {
 }
 .navbar-inverse .navbar-text {
   color: #fff;
+  margin-left: 10px;
 }
 .label-default {
   background-color: #ddd;
@@ -27,12 +28,17 @@ body {
   background-color: #333;
   color: #fff;
 }
+.page-nav {
+  margin-top: 20px;
+}
 .footer {
   background-color: #f9f9f9;
   border-top: 1px solid #e5e5e5;
   padding: 40px 0;
   text-align: center;
 }
+
+/* hentai mode */
 .hentai-uo {
   background: #ffcc00;
 }
