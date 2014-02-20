@@ -22,11 +22,20 @@ body {
   background-color: #ddd;
 }
 .idol-color {
-  font-size: 12px;
+  font-size: 1em;
 }
 .panel-default > .panel-heading {
   background-color: #333;
   color: #fff;
+}
+.performer-item-title {
+  padding: 5px 10px;
+  white-space: nowrap;
+  vertical-align: top;
+}
+.performer-item-value {
+  padding: 5px 10px;
+  word-break: break-all;
 }
 .page-nav {
   margin-top: 20px;

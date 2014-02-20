@@ -58,35 +58,39 @@
             </span>
           </div>
           <div class="panel-body">
-            <ul class="list-inline">
-              <li>所　属:</li>
-              <li>{{idol.affiliation}}</li>
-            </ul>
-            <ul class="list-inline">
-              <li>カラー:</li>
-              <li><h5><span class="label label-default idol-color" style="{{idol.style}}">{{idol.color}}</span></h5></li>
-            </ul>
-            <ul class="list-inline">
-              <li>愛　称:</li>
-              <li>{{idol.nickname}}</li>
-            </ul>
-            <ul class="list-inline">
-              <li>持ち歌:</li>
-              <li>
-                <a ng-if="idol.song_link" ng-href="{{idol.song_link}}" target="_blank">{{idol.song}}</a>
-                <span ng-if="!idol.song_link">{{idol.song}}</span>
-              </li>
-            </ul>
-            <ul class="list-inline">
-              <li>コール:</li>
-              <li>
-                <a ng-if="idol.call_link" ng-href="{{idol.call_link}}" target="_blank">{{idol.call_song}}</a>
-              </li>
-            </ul>
-            <ul class="list-inline">
-              <li>備　考:</li>
-              <li>{{idol.remark}}</li>
-            </ul>
+            <table>
+              <tr>
+                <td class="performer-item-title">所　属:</td>
+                <td class="performer-item-value">{{idol.affiliation}}</td>
+              </tr>
+              <tr>
+                <td class="performer-item-title">カラー:</td>
+                <td class="performer-item-value">
+                  <span class="label label-default idol-color" style="{{idol.style}}">{{idol.color}}</span>
+                </td>
+              </tr>
+              <tr>
+                <td class="performer-item-title">愛　称:</td>
+                <td class="performer-item-value">{{idol.nickname}}</td>
+              </tr>
+              <tr>
+                <td class="performer-item-title">持ち歌:</td>
+                <td class="performer-item-value">
+                  <a ng-if="idol.song_link" ng-href="{{idol.song_link}}" target="_blank">{{idol.song}}</a>
+                  <span ng-if="!idol.song_link">{{idol.song}}</span>
+                </td>
+              </tr>
+              <tr>
+                <td class="performer-item-title">コール:</td>
+                <td class="performer-item-value">
+                  <a ng-if="idol.call_link" ng-href="{{idol.call_link}}" target="_blank">{{idol.call_song}}</a>
+                </td>
+              </tr>
+              <tr>
+                <td class="performer-item-title">備　考:</td>
+                <td class="performer-item-value">{{idol.remark}}</td>
+              </tr>
+            </table>
             <hr>
             <p class="text-info pull-right">
               出演日:
