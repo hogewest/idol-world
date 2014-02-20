@@ -13,10 +13,14 @@ body {
 }
 .navbar-inverse {
   background-color: #333;
+  border-bottom: 1px solid rgba(0, 0, 0, 1);
+  box-shadow(rgba(255, 255, 255, .1)0 1px 0);
 }
 .navbar-inverse .navbar-text {
   color: #fff;
+  font-size: 1.2em;
   margin-left: 10px;
+  text-shadow: 1px -1px 0 rgba(0,0,0,1);
 }
 .label-default {
   background-color: #ddd;
