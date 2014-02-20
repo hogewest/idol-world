@@ -78,7 +78,7 @@ angular.module('app', [])
           if(document.body.scrollTop === 0) {
             return;
           }
-          document.body.scrollTop -= 100;
+          document.body.scrollTop -= 200;
           $timeout(_scrollTop, 10);
         })();
       });
