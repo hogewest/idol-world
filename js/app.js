@@ -55,11 +55,14 @@ angular.module('app', [])
 })
 
 .controller('IdolCtrl', function($scope, Utils, Query) {
+  $scope.loading = true;
+
   Query.send(function(response) {
     var dataTable = JSON.parse(response.getDataTable().toJSON());
     var idols = Utils.mappingToIdol(dataTable.rows.slice(1));
 
     $scope.$apply(function() {
+      $scope.loading = false;
       $scope.idolsRows = Utils.splitIntoRows(idols, 3);
     });
   });
