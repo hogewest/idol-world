@@ -1,8 +1,11 @@
 angular.module('app', [])
 
 .value('AppConfig', {
-  SPREADSHEET_KEY: '0AiYLrpOi8EdddGJtdTZyQm9MdUtvamxiNll2bUtTeGc',
-  BASE_URL: 'http://spreadsheets.google.com/ccc?key='
+  BASE_URL: 'http://spreadsheets.google.com/ccc?key=',
+  Events : {
+    MASTERS_OF_IDOL_WORLD_2014: '0AiYLrpOi8EdddGJtdTZyQm9MdUtvamxiNll2bUtTeGc',
+    CINDERELLA_GIRLS_1stLIVE_WONDERFUL_MAGIC: '18-1XpBmud65eA1DASZhUa0JYtcs7Zwt6_DUvggMGV-s'
+  }
 })
 
 .factory('Utils', function() {
@@ -50,14 +53,18 @@ angular.module('app', [])
 })
 
 .factory('Query', function(AppConfig) {
-  var url = AppConfig.BASE_URL + AppConfig.SPREADSHEET_KEY + '&gid=0';
-  return new google.visualization.Query(url);
+  return {
+    send: function (spreadsheetKey, callback) {
+      var url = AppConfig.BASE_URL + spreadsheetKey + '&gid=0';
+      return new google.visualization.Query(url).send(callback);
+    }
+  };
 })
 
-.controller('IdolCtrl', function($scope, Utils, Query) {
+.controller('IdolCtrl', function($scope, Utils, AppConfig, Query) {
   $scope.loading = true;
 
-  Query.send(function(response) {
+  Query.send(AppConfig.Events.MASTERS_OF_IDOL_WORLD_2014, function(response) {
     var dataTable = JSON.parse(response.getDataTable().toJSON());
     var idols = Utils.mappingToIdol(dataTable.rows.slice(1));
 
