@@ -73,14 +73,7 @@ angular.module('app', [])
     link: function(scope, element, attrs) {
       element.on('click', function(e) {
         e.preventDefault();
-
-        (function _scrollTop() {
-          if(document.body.scrollTop === 0) {
-            return;
-          }
-          document.body.scrollTop -= 200;
-          $timeout(_scrollTop, 10);
-        })();
+        document.body.scrollTop = 0;
       });
     }
   }
